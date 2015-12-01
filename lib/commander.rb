@@ -4,7 +4,7 @@ module Commander
     # USER = 'makebuild'
     # PASS = ''
     def random
-      system 'bash /home/makebuild/scripts/random.sh'
+      system 'bash /home/makebuild/scripts/random.sh 80'
       # Net::SSH.start( HOST, USER, :password => PASS ) do| ssh |
       #    ssh.exec "sh /home/makebuild/scripts/random.sh"
       # end
