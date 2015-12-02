@@ -18,7 +18,7 @@ module Commander
       # end
     end
     def say(text)
-      bash_command = "bash /home/makebuild/scripts/say.sh '#{text.gsub("'", %q(\\\'))}'"
+      bash_command = "bash /home/makebuild/scripts/say.sh \"#{text}\""
       puts "bash_command: #{bash_command}"
       system bash_command
     end
