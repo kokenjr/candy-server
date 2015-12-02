@@ -4,16 +4,22 @@ module Commander
     # USER = 'makebuild'
     # PASS = ''
     def random(audio)
+      bash_command = 'bash /home/makebuild/scripts/random.sh 80'
       if audio == "random"
-        system 'bash /home/makebuild/scripts/random.sh 80'
+        puts "bash_command: #{bash_command}"
+        system bash_command
       else
-        system "bash /home/makebuild/scripts/random.sh 80 #{audio}"
+        bash_command += " #{audio}"
+        puts "bash_command: #{bash_command}"
+        system bash_command
       end
       # Net::SSH.start( HOST, USER, :password => PASS ) do| ssh |
       #    ssh.exec "sh /home/makebuild/scripts/random.sh"
       # end
     end
     def say(text)
-      system "bash /home/makebuild/scripts/say.sh '#{text}'"
+      bash_command = "bash /home/makebuild/scripts/say.sh '#{text.gsub("'", "\'")}'"
+      puts "bash_command: #{bash_command}"
+      system bash_command
     end
 end
