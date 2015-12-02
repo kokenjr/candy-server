@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   namespace :api do
     get 'commands/random' => 'commands#random'
     post 'commands/say' => 'commands#say'
+    post 'commands/status' => 'commands#status'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

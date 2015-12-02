@@ -22,4 +22,9 @@ module Commander
       puts "bash_command: #{bash_command}"
       system bash_command
     end
+    def status(state)
+      bash_command = "bash /home/makebuild/scripts/#{state}.sh"
+      puts "bash_command: #{bash_command}"
+      system bash_command
+    end
 end
