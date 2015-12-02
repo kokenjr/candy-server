@@ -5,4 +5,9 @@ class Api::CommandsController < Api::BaseController
     Commander.random(params[:audio])
     render json: {message: "success"}
   end
+  def say
+    puts "request say command"
+    Commander.say(params[:text])
+    render json: {message: "success"}
+  end
 end
