@@ -4,7 +4,7 @@ module Commander
     # USER = 'makebuild'
     # PASS = ''
     def random(audio)
-      bash_command = 'bash /home/makebuild/scripts/random.sh 80'
+      bash_command = 'bash script/random.sh 80'
       if audio == "random"
         puts "bash_command: #{bash_command}"
         system bash_command
@@ -18,12 +18,12 @@ module Commander
       # end
     end
     def say(text)
-      bash_command = "bash /home/makebuild/scripts/say.sh \"#{text}\""
+      bash_command = "bash script/say.sh \"#{text}\""
       puts "bash_command: #{bash_command}"
       system bash_command
     end
     def status(state)
-      bash_command = "bash /home/makebuild/scripts/#{state}.sh"
+      bash_command = "bash script/#{state}.sh"
       puts "bash_command: #{bash_command}"
       system bash_command
     end

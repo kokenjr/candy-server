@@ -1,0 +1,5 @@
+curl -H "Content-Type: application/json" -H "Accept: application/json" -X GET http://localhost:3000/api/commands/random?audio=random
+curl -H "Content-Type: application/json" -H "Accept: application/json" -X GET http://10.1.10.60:3000/api/commands/random
+curl -H "Content-Type: application/json" -H "Accept: application/json" -X GET http://73.43.60.110:3000/api/commands/random
+
+curl -H "Content-Type: application/json" -H "Accept: application/json" -X POST http://localhost:3000/api/commands/status -d '{"state": "mute"}'
