@@ -20,9 +20,9 @@ module Commander
     def say(text)
       prefix = text.split.first
       if prefix != "es"
-        text = "en " + text
+        prefix = "en"
       end
-      bash_command = "bash script/say.sh \"#{text}\""
+      bash_command = "bash script/say.sh #{prefix} \"#{text}\""
       puts "bash_command: #{bash_command}"
       system bash_command
     end
