@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  root 'file_manager#index'
+  post 'file-mananger/upload' => 'file_manager#upload'
+
   namespace :api do
     get 'commands/random' => 'commands#random'
     post 'commands/say' => 'commands#say'

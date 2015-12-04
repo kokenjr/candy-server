@@ -1,0 +1,7 @@
+<h1>File Manager</h1>
+<%= form_tag({action: :upload}, multipart: true) do %>
+  <%= label_tag("command", "Type in command:") %>
+  <%= text_field_tag("command") %>
+  <%= file_field_tag "files[]", :multiple => true %>
+  <%= submit_tag %>
+<% end %>

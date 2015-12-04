@@ -1,6 +1,8 @@
 #!/bin/bash
 
-blatherdir=~/.config/blather
+# blatherdir=~/.config/blather
+SCRIPT_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+blatherdir=$SCRIPT_PATH/.config/blather
 sentences=$blatherdir/sentences.corpus
 sourcefile=$blatherdir/commands.conf
 langdir=$blatherdir/language
