@@ -20,9 +20,9 @@ PERCENT_MATCH_LIMIT = 90
 
 #where are the files?
 # conf_dir = os.path.expanduser("~/.config/blather")
-conf_dir = os.path.expanduser(".config/blather")
-lang_dir = os.path.join(conf_dir, "language")
 file_dir = os.path.dirname(os.path.abspath(__file__))
+conf_dir = os.path.join(file_dir, ".config/blather")
+lang_dir = os.path.join(conf_dir, "language")
 plugin_dir = os.path.join(conf_dir, "plugins")
 command_file = os.path.join(conf_dir, "commands.conf")
 strings_file = os.path.join(conf_dir, "sentences.corpus")

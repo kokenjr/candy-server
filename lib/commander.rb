@@ -19,7 +19,9 @@ module Commander
     end
     def say(text)
       prefix = text.split.first
-      if prefix != "es"
+      if prefix == "es"
+        text = text.split.drop(1).join(' ')
+      else
         prefix = "en"
       end
       bash_command = "bash script/say.sh #{prefix} \"#{text}\""
