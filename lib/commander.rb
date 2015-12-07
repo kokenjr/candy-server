@@ -25,11 +25,21 @@ module Commander
         prefix = "en"
       end
       bash_command = "bash script/say.sh #{prefix} \"#{text}\""
-      puts "bash_command: #{bash_command}"
-      system bash_command
+      run_command(bash_command)
     end
     def status(state)
       bash_command = "bash script/#{state}.sh"
+      run_command(bash_command)
+    end
+    def restart_blather
+      Thread.new do
+        bash_command = "pidof python2 ./Blather.py | awk '{print \"kill -9 \" $1}' | sh"
+        run_command(bash_command)
+        bash_command = "cd vendor/blather/ && ./Blather.py m 1 -i g -c"
+        run_command(bash_command)
+      end
+    end
+    def run_command(bash_command)
       puts "bash_command: #{bash_command}"
       system bash_command
     end

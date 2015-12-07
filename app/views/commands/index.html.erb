@@ -1,0 +1,19 @@
+<% flash.each do |name, msg| %>
+  <% if msg.is_a?(String) %>
+  <% puts "name: #{name}" %>
+    <% name = "success" if name.to_s == "notice" %>
+    <% name = "danger" if name.to_s == "alert" %>
+    <div class="alert alert-<%= name %>">
+      <a class="close" data-dismiss="alert">&#215;</a>
+      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    </div>
+  <% end %>
+<% end %>
+
+<h1>Candybot</h1>
+<%= form_tag({action: :upload}, multipart: true) do %>
+  <%= label_tag("command", "Type in command:") %>
+  <%= text_field_tag("command") %>
+  <%= file_field_tag "files[]", :multiple => true %>
+  <%= submit_tag %>
+<% end %>
