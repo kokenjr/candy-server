@@ -1,5 +1,6 @@
 require 'fileutils'
 class CommandsController < ApplicationController
+  before_action :authenticate_user!
   def index
   end
   def upload
@@ -22,6 +23,6 @@ class CommandsController < ApplicationController
         flash[:danger] = "Command can't contain special characters"
       end
     end
-    redirect_to root
+    redirect_to root_path
   end
 end
