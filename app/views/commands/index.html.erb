@@ -15,7 +15,7 @@
 
 
 <%= form_tag({action: :say}, class: "say-command") do %>
-  <%= text_area_tag "command", nil, placeholder: "Type text you want CANDYBOT to say...", class: "form-control" %>
+  <%= text_area_tag "text", nil, placeholder: "Type text you want CANDYBOT to say...", class: "form-control" %>
   <%= submit_tag "Say", class: "btn btn-primary btn-block" %>
 <% end %>
 

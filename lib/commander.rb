@@ -19,7 +19,7 @@ module Commander
       # end
     end
     def say(text)
-      text = text.strip.downcase
+      text = text.gsub(/\r/," ").gsub(/\n/," ").strip.downcase
       prefix = text.split.first
       if prefix == "es"
         text = text.split.drop(1).join(' ')
