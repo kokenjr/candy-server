@@ -19,6 +19,7 @@ class CommandsController < ApplicationController
           f.puts "candy #{command.gsub("-", " ")}:../../script/random.sh 80 #{command}"
         end
         Commander.restart_blather
+        flash[:success] = "Uploaded command successfully"
       else
         flash[:danger] = "Command can't contain special characters"
       end
