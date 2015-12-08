@@ -3,9 +3,11 @@ class CommandsController < ApplicationController
   before_action :authenticate_user!
   def index
     @commands = []
-    Dir.entries("public/sounds").each do |command|
-      if command != "." && command != ".."
-        @commands << command.gsub("-", " ")
+    directory = "public/sounds"
+    Dir.entries(directory).each do |file|
+      is_directory = File.directory? File.join(directory, file)
+      if is_directory && file != "." && file != ".."
+        @commands << file.gsub("-", " ")
       end
     end
   end
