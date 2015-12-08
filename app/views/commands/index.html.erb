@@ -6,9 +6,9 @@
     <span class="caret"></span>
   </button>
   <ul class="dropdown-menu" aria-labelledby="audio-commands">
-    <li><%= link_to "random", commands_random_path, audio: "random" %></li>
+    <li><%= link_to "random", commands_random_path(audio: "random") %></li>
     <% @commands.each do |command| %>
-      <li><%= link_to command, commands_random_path, audio: command %></li>
+      <li><%= link_to command, commands_random_path(audio: command) %></li>
     <% end %>
   </ul>
 </div>
