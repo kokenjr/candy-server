@@ -2,7 +2,10 @@ Rails.application.routes.draw do
 
   devise_for :users
   root 'commands#index'
-  post 'commands/upload' => 'commands#upload'
+  post 'commands/upload'
+  get 'commands/random'
+  post 'commands/say'
+  post 'commands/status'
 
   namespace :api do
     get 'commands/random' => 'commands#random'

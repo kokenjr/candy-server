@@ -4,6 +4,7 @@ module Commander
     # USER = 'makebuild'
     # PASS = ''
     def random(audio)
+      audio = audio.strip.downcase.gsub(" ", "-")
       bash_command = 'bash script/random.sh 80'
       if audio == "random"
         puts "bash_command: #{bash_command}"
@@ -18,6 +19,7 @@ module Commander
       # end
     end
     def say(text)
+      text = text.strip.downcase
       prefix = text.split.first
       if prefix == "es"
         text = text.split.drop(1).join(' ')
@@ -28,6 +30,7 @@ module Commander
       run_command(bash_command)
     end
     def status(state)
+      state = state.downcase
       bash_command = "bash script/#{state}.sh"
       run_command(bash_command)
     end

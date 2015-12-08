@@ -1,4 +1,23 @@
-<!-- <h2>Commands</h2> -->
+<h2>Run commands</h2>
+
+<div class="dropdown audio-commands">
+  <button class="btn btn-default btn-block dropdown-toggle" type="button" id="audio-commands" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Play Audio
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="audio-commands">
+    <li><%= link_to "random", commands_random_path, audio: "random" %></li>
+    <% @commands.each do |command| %>
+      <li><%= link_to command, commands_random_path, audio: command %></li>
+    <% end %>
+  </ul>
+</div>
+
+
+<%= form_tag({action: :say}, class: "say-command") do %>
+  <%= text_area_tag "command", nil, placeholder: "Type text you want CANDYBOT to say...", class: "form-control" %>
+  <%= submit_tag "Say", class: "btn btn-primary btn-block" %>
+<% end %>
 
 <h2>Add audio commands</h2>
 <%= form_tag({action: :upload}, multipart: true, class: "add-commands") do %>

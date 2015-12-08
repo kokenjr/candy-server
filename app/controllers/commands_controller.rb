@@ -2,6 +2,37 @@ require 'fileutils'
 class CommandsController < ApplicationController
   before_action :authenticate_user!
   def index
+    @commands = Dir.entries("public/sounds")[2..-1].map{ |command| command.gsub("-", " ")}
+  end
+  def random
+    begin
+      Commander.random(params[:audio])
+      flash[:success] = "CANDYBOT played audio"
+    rescue => e
+      logger.error "Error playing audio: #{e.message}"
+      flash[:danger] = "Error playing audio"
+    end
+    redirect_to root_path
+  end
+  def say
+    begin
+      Commander.say(params[:text])
+      flash[:success] = "CANDYBOT spoke"
+    rescue => e
+      logger.error "Error with text to speech: #{e.message}"
+      flash[:danger] = "Error getting CANDYBOT to speak"
+    end
+    redirect_to root_path
+  end
+  def status
+    begin
+      Commander.status(params[:state])
+      flash[:success] = "CANDYBOT changed state to #{params[:state]}"
+    rescue => e
+      logger.error "Error setting state: #{e.message}"
+      flash[:danger] = "Error setting state"
+    end
+    redirect_to root_path
   end
   def upload
     if !params[:files].blank? && !params[:command].blank?
