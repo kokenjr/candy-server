@@ -2,7 +2,12 @@ require 'fileutils'
 class CommandsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @commands = Dir.entries("public/sounds")[2..-1].map{ |command| command.gsub("-", " ")}
+    @commands = []
+    Dir.entries("public/sounds").each do |command|
+      if command != "." && command != ".."
+        @commands << command.gsub("-", " ")
+      end
+    end
   end
   def random
     begin
