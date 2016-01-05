@@ -1,9 +1,7 @@
 == README
 
-Dependencies
+=== Dependencies
 
-mplayer
-
-simple_google_tts (in `script` directory)
-
-blather (in `vendor` directory)
+* mplayer
+* simple_google_tts (in +script+ directory). See README in directory for more details 
+* blather (in +vendor+ directory). See README in directory for more details
