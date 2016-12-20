@@ -18,6 +18,13 @@ module Commander
       #    ssh.exec "sh /home/makebuild/scripts/random.sh"
       # end
     end
+    def say_random_things
+      sentence = nil
+      File.foreach("script/random_dict.txt").each_with_index do |line, number|
+        sentence = line if rand < 1.0/(number+1)
+      end
+      say(sentence)
+    end
     def say(text)
       text = text.gsub(/\r/," ").gsub(/\n/," ").strip.downcase
       prefix = text.split.first

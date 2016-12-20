@@ -36,6 +36,8 @@ gem 'net-ssh'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'therubyracer'
 gem 'devise'
+gem 'pry'
+gem 'rufus-scheduler'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
