@@ -23,7 +23,7 @@ module Commander
       File.foreach("script/random_dict.txt").each_with_index do |line, number|
         sentence = line if rand < 1.0/(number+1)
       end
-      say(sentence)
+      say(sentence.gsub("\"", "").strip)
     end
     def say(text)
       text = text.gsub(/\r/," ").gsub(/\n/," ").strip.downcase
