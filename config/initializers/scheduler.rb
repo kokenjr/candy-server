@@ -3,6 +3,7 @@ require 'commander'
 
 scheduler = Rufus::Scheduler.new
 
-scheduler.interval '30s' do
+scheduler.every '20m' do
+  sleep rand(1..600)
   Commander.say_random_things
 end
