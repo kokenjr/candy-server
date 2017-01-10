@@ -59,7 +59,7 @@ module Commander
       Dir.entries(directory).each do |file|
         is_directory = File.directory? File.join(directory, file)
         if is_directory && file != "." && file != ".."
-          commands << file.gsub("-", " ")
+          commands << file
         end
       end
 
