@@ -38,6 +38,6 @@ class Api::CommandsController < Api::BaseController
   end
   def help
     commands = Commander.get_sound_commands
-    render json: {comands: commands}
+    render json: {commands: commands}
   end
 end
