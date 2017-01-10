@@ -36,4 +36,8 @@ class Api::CommandsController < Api::BaseController
       render json: {message: e.message}, status: :bad_request
     end
   end
+  def help
+    commands = Commander.get_sound_commands
+    render json: {comands: commands}
+  end
 end

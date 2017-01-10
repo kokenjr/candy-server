@@ -2,14 +2,7 @@ require 'fileutils'
 class CommandsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @commands = []
-    directory = "public/sounds"
-    Dir.entries(directory).each do |file|
-      is_directory = File.directory? File.join(directory, file)
-      if is_directory && file != "." && file != ".."
-        @commands << file.gsub("-", " ")
-      end
-    end
+    @commands = Commander.get_sound_commands
   end
   def random
     begin

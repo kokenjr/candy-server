@@ -53,4 +53,16 @@ module Commander
       puts "bash_command: #{bash_command}"
       system bash_command
     end
+    def get_sound_commands
+      commands = []
+      directory = "public/sounds"
+      Dir.entries(directory).each do |file|
+        is_directory = File.directory? File.join(directory, file)
+        if is_directory && file != "." && file != ".."
+          commands << file.gsub("-", " ")
+        end
+      end
+
+      commands
+    end
 end
