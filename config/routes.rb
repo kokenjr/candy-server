@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     get 'commands/random' => 'commands#random'
     post 'commands/say' => 'commands#say'
     post 'commands/status' => 'commands#status'
-    post 'commands/help' => 'commands#help'
+    get 'commands/help' => 'commands#help'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
